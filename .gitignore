@@ -1,0 +1,8 @@
+.idea
+
+# Переменные окружения
+bandyplace/.env
+
+# Медиафайлы
+!media
+/media/
