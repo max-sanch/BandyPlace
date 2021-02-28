@@ -15,8 +15,11 @@ class UpcomingGame(models.Model):
 		on_delete=models.CASCADE,
 		verbose_name='Вторая команда'
 	)
-	date = models.DateTimeField(
-		verbose_name='Время проведения матча'
+	date = models.DateField(
+		verbose_name='Дата проведения матча (дд.мм.гггг)'
+	)
+	time = models.TimeField(
+		verbose_name='Время проведения матча (чч:мм)'
 	)
 	address = models.CharField(
 		verbose_name='Место проведения матча',

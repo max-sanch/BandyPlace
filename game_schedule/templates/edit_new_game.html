@@ -1,0 +1,33 @@
+{% extends 'base_templates.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+BadnyPlace — {% if request.path == '/schedule/add/' %}Добавить{% else %}Редактировать{% endif %} матч
+{% endblock %}
+
+{% block content %}
+<div class="row flex-center min-vh-95 py-4 py-lg-6">
+  <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+    <div class="card">
+      <div class="card-body p-4 p-sm-5">
+        <div class="text-center mb-4">
+          <h4 style="font-weight: 400;">
+            {% if request.path == '/schedule/add/' %}
+            Добавить матч
+            {% else %}
+            Редактировать матч
+            {% endif %}
+          </h4>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <div class="form-group">
+            <button class="btn btn-primary btn-block mt-3" type="submit" name="submit">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

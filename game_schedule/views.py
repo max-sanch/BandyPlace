@@ -15,7 +15,7 @@ class AddUpcomingGameView(CreateView):
 	"""Предстовление добавления предстоящих игр"""
 	template_name = 'edit_new_game.html'
 	model = UpcomingGame
-	fields = ['team_one', 'team_two', 'date', 'address']
+	fields = ['team_one', 'team_two', 'date', 'time', 'address']
 
 
 class UpdateUpcomingGameView(UpdateView):

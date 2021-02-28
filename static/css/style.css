@@ -1,0 +1,28 @@
+.dropdown-item-cast {
+    color: #9da9bb;
+}
+
+.dropdown-item-cast:hover {
+    color: #edf2f9;
+    background-color: #061325;
+}
+
+.dropdown-item-cast:active {
+    color: #edf2f9;
+    background-color: #344050;
+}
+
+.navbar .dropdown-menu:after {
+    -webkit-box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 0%);
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 0%);
+}
+
+.news_img {
+    height: 10rem;
+}
+
+@media screen and (min-width: 900px) {
+    .news_img {
+        height: 50vh;
+    }
+}

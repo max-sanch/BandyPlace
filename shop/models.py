@@ -5,13 +5,14 @@ class Product(models.Model):
 	"""Модель списка товара(мерча)"""
 	slug = models.SlugField(
 		verbose_name='Уникальное название для URL',
-		max_length=64
+		max_length=64,
+		unique=True
 	)
 	name = models.CharField(
 		verbose_name='Название товара',
 		max_length=256
 	)
-	description = models.CharField(
+	description = models.TextField(
 		verbose_name='Характеристики/описание товара',
 		max_length=1024
 	)
@@ -19,7 +20,7 @@ class Product(models.Model):
 		verbose_name='Ссылка на товар',
 		max_length=256
 	)
-	price = models.IntegerField(
+	price = models.PositiveIntegerField(
 		verbose_name='Стоимость товара'
 	)
 	image = models.FileField(

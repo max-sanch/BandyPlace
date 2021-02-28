@@ -5,13 +5,14 @@ class Video(models.Model):
 	"""Модель для постов с видео"""
 	slug = models.SlugField(
 		verbose_name='Уникальное название для URL',
-		max_length=64
+		max_length=64,
+		unique=True
 	)
 	name = models.CharField(
 		verbose_name='Название видео',
 		max_length=256
 	)
-	body = models.CharField(
+	body = models.TextField(
 		verbose_name='Краткое описание видео',
 		max_length=1024
 	)
@@ -23,3 +24,4 @@ class Video(models.Model):
 		verbose_name='Время создания поста с видео',
 		auto_now_add=True
 	)
+	objects = models.Manager()

@@ -76,8 +76,8 @@ class PastGame(models.Model):
 		on_delete=models.CASCADE,
 		verbose_name='Вторая команда'
 	)
-	date = models.DateTimeField(
-		verbose_name='Время проведения матча'
+	date = models.DateField(
+		verbose_name='Дата проведения матча'
 	)
 	result = models.CharField(
 		verbose_name='Результат матча',

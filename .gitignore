@@ -4,5 +4,4 @@
 bandyplace/.env
 
 # Медиафайлы
-!media
-/media/
+media
