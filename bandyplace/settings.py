@@ -84,6 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bandyplace.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -147,7 +148,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 	BASE_DIR / "static",
-	BASE_DIR / "media",
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

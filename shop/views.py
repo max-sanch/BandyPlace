@@ -17,7 +17,7 @@ class AddProductView(CreateView):
 	template_name = 'edit_prod.html'
 	model = Product
 	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
-	success_url = reverse_lazy('all_prod')
+	success_url = reverse_lazy('add_prod')
 
 
 class UpdateProductView(UpdateView):
@@ -25,11 +25,11 @@ class UpdateProductView(UpdateView):
 	template_name = 'edit_prod.html'
 	model = Product
 	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
-	success_url = reverse_lazy('all_prod')
+	success_url = reverse_lazy('all_prods')
 
 
 class DeleteProductView(DeleteView):
 	"""Предстовление удаления продукта"""
 	template_name = 'delete_prod.html'
 	model = Product
-	success_url = reverse_lazy('all_prod')
+	success_url = reverse_lazy('all_prods')
