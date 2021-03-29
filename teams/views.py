@@ -1,4 +1,6 @@
+from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Team, TeamStat, Player, PlayerStat, PastGame, PastGameStat
@@ -22,10 +24,12 @@ class UpdateStatTeamView(UpdateView):
 	template_name = 'edit_stat_team.html'
 	model = TeamStat
 	fields = ['team']
+	success_url = reverse_lazy('stat_teams')
 
 
 class DeleteStatTeamView(DeleteView):
 	"""Предстовление удаления статистики команды"""
+	template_name = 'delete_stat_team.html'
 	model = TeamStat
 	success_url = '/stat_teams/'
 
@@ -35,6 +39,7 @@ class AddTeamView(CreateView):
 	template_name = 'edit_team.html'
 	model = Team
 	fields = ['name', 'logo']
+	success_url = reverse_lazy('add_team')
 
 
 class UpdateTeamView(UpdateView):
@@ -42,12 +47,14 @@ class UpdateTeamView(UpdateView):
 	template_name = 'edit_team.html'
 	model = Team
 	fields = ['name', 'logo']
+	success_url = reverse_lazy('stat_teams')
 
 
 class DeleteTeamView(DeleteView):
 	"""Предстовление удаления команды"""
+	template_name = 'delete_team.html'
 	model = Team
-	success_url = '/stat_teams/'
+	success_url = reverse_lazy('stat_teams')
 
 
 # Игроки
@@ -97,9 +104,16 @@ class DeletePlayerView(DeleteView):
 
 
 # Прошедшие игры
-class StatPastGamesView(TemplateView):
+class StatPastGamesView(ListView):
 	"""Предстовление статистики прошедших игр"""
 	template_name = 'stat_old_games.html'
+	queryset = PastGameStat.objects.order_by('-past_game.date_creation')
+	paginate_by = 12
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['fields'] = PastGameStat._meta.fields
+		return context
 
 
 class AddStatPastGameView(CreateView):

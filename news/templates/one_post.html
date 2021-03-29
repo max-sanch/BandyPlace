@@ -4,31 +4,36 @@
 {% block title %}BadnyPlace — {{ object.title }}{% endblock %}
 
 {% block content %}
-<div class="row my-4 mx-0 mx-lg-5">
-  <div class="card mb-3">
-    <div class="card-body">
-      <h4 class="mb-0">
-        <a class="text-dark" href="{% url 'all_posts' %}"><i class="fas fa-arrow-left"></i> Все новости</a>
-      </h4>
+<div class="row my-2">
+  <div class="col-12 col-lg-9">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h4 class="mb-0">
+          <a class="text-dark" href="{% url 'all_posts' %}"><i class="fas fa-arrow-left"></i> Все новости</a>
+        </h4>
+      </div>
     </div>
-  </div>
 
-  <div class="card overflow-hidden mb-3 p-0">
-    <div class="cover-image overflow-hidden news_img">
-      <a href="{% static object.image %}" data-fancybox="gallery" data-caption="Image caption">
-        <img class="card-img-top" src="{% static object.image %}" alt=""
-           style="position: absolute; margin: auto; top: 0; bottom: 0;">
-      </a>
+    <div class="card overflow-hidden mb-3 p-0">
+      <div class="cover-image overflow-hidden news_img">
+        <a href="{% static object.image %}" data-fancybox="gallery" data-caption="Image caption">
+          <img class="card-img-top" src="{% static object.image %}" alt=""
+             style="position: absolute; margin: auto; top: 0; bottom: 0;">
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="card mb-3 p-0 p-lg-4">
+    <div class="card mb-3 p-0 p-lg-4">
     <div class="card-header ">
       <h5 class="text-dark mb-0">{{ object.title }}</h5>
     </div>
     <div class="card-body">
       {{ object.body|urlize|linebreaks }}
     </div>
+  </div>
+  </div>
+  <div class="col-12 col-lg-3">
+    {% include 'include/sidebar.html' %}
   </div>
 </div>
 {% endblock %}

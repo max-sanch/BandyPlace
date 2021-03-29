@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -16,6 +17,7 @@ class AddProductView(CreateView):
 	template_name = 'edit_prod.html'
 	model = Product
 	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
+	success_url = reverse_lazy('all_prod')
 
 
 class UpdateProductView(UpdateView):
@@ -23,9 +25,11 @@ class UpdateProductView(UpdateView):
 	template_name = 'edit_prod.html'
 	model = Product
 	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
+	success_url = reverse_lazy('all_prod')
 
 
 class DeleteProductView(DeleteView):
 	"""Предстовление удаления продукта"""
+	template_name = 'delete_prod.html'
 	model = Product
-	success_url = '/all_prods/'
+	success_url = reverse_lazy('all_prod')

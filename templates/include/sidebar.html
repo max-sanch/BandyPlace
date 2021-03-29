@@ -1,0 +1,343 @@
+{% load static %}
+{% if request.path != '/schedule/' %}
+<div class="card overflow-hidden mb-3">
+  <div class="card-header bg-light">
+    <div class="row align-items-center">
+      <div class="col">
+        <h6 class="mb-0">Следующие игры</h6>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/enisei.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Енисей
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Волга</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/volga-uljanovsk.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/vodnik.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Водник
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Мурман</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/murman.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/kuzbass-kemerovo.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Кузбасс
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Водник</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/vodnik.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/volga-uljanovsk.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Волга
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Енисей</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/enisei.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-light p-0">
+    <a class="btn btn-sm btn-link btn-block py-2" href="{% url 'all_new_games' %}">
+      Подробнее <span class="fas fa-chevron-right ml-1 fs--2"></span>
+    </a>
+  </div>
+</div>
+{% endif %}
+
+<div class="card overflow-hidden">
+  <div class="card-header bg-light">
+    <div class="row align-items-center">
+      <div class="col">
+        <h6 class="mb-0">Результаты прошлых игр</h6>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/enisei.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Енисей
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">3:1</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Волга</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/volga-uljanovsk.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/rodina-kirov.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Родина
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">11:5</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Старт</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/start-nizhnii-novgorod.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/murman.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Мурман
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">6:5</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Кузбасс</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/kuzbass-kemerovo.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/enisei.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Енисей
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">6:6</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Старт</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/start-nizhnii-novgorod.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/vodnik.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Водник
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">8:3</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Мурман</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/murman.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative border-bottom border-200">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/kuzbass-kemerovo.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Кузбасс
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">6:1</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Водник</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/vodnik.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center py-2 position-relative">
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="avatar avatar-xl mr-3">
+            <img class="rounded-circle" src="{% static 'team_logos/volga-uljanovsk.png' %}" alt="">
+          </div>
+          <div class="media-body">
+            <h6 class="mb-0 d-flex align-items-center text-800">
+              Волга
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col pl-card py-1 position-static text-center">
+        <h5 class="m-0">4:4</h5>
+      </div>
+      <div class="col pl-card py-1 position-static">
+        <div class="media align-items-center">
+          <div class="media-body">
+            <div class="d-flex align-items-center">
+              <h6 class="text-800 ml-auto mb-0">Енисей</h6>
+            </div>
+          </div>
+          <div class="avatar avatar-xl mx-3">
+            <img class="rounded-circle" src="{% static 'team_logos/enisei.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-light p-0">
+    <a class="btn btn-sm btn-link btn-block py-2" href="#!">
+      Все результаты <span class="fas fa-chevron-right ml-1 fs--2"></span>
+    </a>
+  </div>
+</div>

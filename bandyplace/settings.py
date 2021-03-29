@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 	'core',
 	'teams',
 	'shop',
-	'videos',
 	'news',
 	'game_schedule',
 ]
@@ -91,12 +90,12 @@ WSGI_APPLICATION = 'bandyplace.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'bandyplace',
-		'USER': 'admin',
-		'PASSWORD': 'admin',
-		'HOST': 'localhost',
-		'PORT': '5432',
+		'ENGINE': os.getenv('DB_ENGINE'),
+		'NAME': os.getenv('DB_NAME'),
+		'USER': os.getenv('DB_USER'),
+		'PASSWORD': os.getenv('DB_PASSWORD'),
+		'HOST': os.getenv('DB_HOST'),
+		'PORT': os.getenv('DB_PORT'),
 	}
 }
 
@@ -146,12 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 STATICFILES_DIRS = [
 	BASE_DIR / "static",
 	BASE_DIR / "media",
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

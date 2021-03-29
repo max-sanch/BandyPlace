@@ -14,7 +14,7 @@ class Product(models.Model):
 	)
 	description = models.TextField(
 		verbose_name='Характеристики/описание товара',
-		max_length=1024
+		max_length=256
 	)
 	url_shop = models.URLField(
 		verbose_name='Ссылка на товар',

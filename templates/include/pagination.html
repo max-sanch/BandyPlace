@@ -3,6 +3,9 @@
      href="?page={{ page_obj.number|add:'-1' }}">
     <span class="fas fa-chevron-left"></span>
   </a>
+  {% if paginator.page_range|length == 1 %}
+  <a class="btn btn-sm btn-falcon-default mr-1 disabled" href="">1</a>
+  {% endif %}
   {% if page_obj.has_previous %}
     {% if page_obj.number|add:'-1' > 1 %}
       <a class="btn btn-sm btn-falcon-default mr-1" href="?page=1">1</a>
@@ -14,7 +17,7 @@
   {% if paginator.page_range|length > 1 %}
     {% for i in paginator.page_range %}
       {% if page_obj.number == i %}
-        <a class="btn btn-sm btn-falcon-default mr-1 active" href="">{{ i }}</a>
+        <a class="btn btn-sm btn-falcon-default mr-1 disabled" href="">{{ i }}</a>
       {% elif i > page_obj.number|add:'-2' and i < page_obj.number|add:'2' %}
         <a class="btn btn-sm btn-falcon-default mr-1" href="?page={{ i }}">{{ i }}</a>
       {% endif %}

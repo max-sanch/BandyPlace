@@ -1,0 +1,110 @@
+{% extends 'base_templates.html' %}
+{% load static %}
+
+{% block title %}BadnyPlace — Статистика по играм{% endblock %}
+
+{% block content %}
+<div class="row my-2">
+  <div class="col-12 col-lg-9">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h4 class="mb-0">Статистика по играм</h4>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-6 col-sm-auto d-flex align-items-center pr-0">
+            <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Recent Purchases</h5>
+          </div>
+          <div class="col-6 col-sm-auto ml-auto text-right pl-0">
+            <div class="d-none" id="purchases-actions">
+              <div class="input-group input-group-sm">
+                <select class="custom-select cus" aria-label="Bulk actions">
+                  <option selected="">Bulk actions</option>
+                  <option value="Refund">Refund</option>
+                  <option value="Delete">Delete</option>
+                  <option value="Archive">Archive</option>
+                </select>
+                <button class="btn btn-falcon-default btn-sm ml-2" type="button">Apply</button>
+              </div>
+            </div>
+            <div id="dashboard-actions">
+              <button class="btn btn-falcon-default btn-sm" type="button">
+                <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span>
+                <span class="d-none d-sm-inline-block ml-1">New</span>
+              </button>
+              <button class="btn btn-falcon-default btn-sm mx-2" type="button">
+                <span class="fas fa-filter" data-fa-transform="shrink-3 down-2"></span>
+                <span class="d-none d-sm-inline-block ml-1">Filter</span>
+              </button>
+              <button class="btn btn-falcon-default btn-sm" type="button">
+                <span class="fas fa-external-link-alt" data-fa-transform="shrink-3 down-2"></span>
+                <span class="d-none d-sm-inline-block ml-1">Export</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body px-0 pt-0">
+        <div class="dashboard-data-table">
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row mx-1">
+              <div class="col-sm-12 col-md-6 px-3"></div>
+              <div class="col-sm-12 col-md-6 px-3"></div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-sm table-dashboard fs--1 data-table border-bottom dataTable no-footer" data-options="{&quot;responsive&quot;:false,&quot;pagingType&quot;:&quot;simple&quot;,&quot;lengthChange&quot;:false,&quot;searching&quot;:false,&quot;pageLength&quot;:8,&quot;columnDefs&quot;:[{&quot;targets&quot;:[0,6],&quot;orderable&quot;:false}],&quot;language&quot;:{&quot;info&quot;:&quot;_START_ to _END_ Items of _TOTAL_ — <a href=\&quot;#!\&quot; class=\&quot;font-weight-semi-bold\&quot;> view all <span class=\&quot;fas fa-angle-right\&quot; data-fa-transform=\&quot;down-1\&quot;></span> </a>&quot;},&quot;buttons&quot;:[&quot;copy&quot;,&quot;excel&quot;]}" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                <thead class="bg-200 text-900">
+                  <tr role="row">
+                    {% for field in fields %}
+                    <th class="sort pr-1 align-middle sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">{{ field.verbose_name }}</th>
+                    {% endfor %}
+<!--                    <th class="sort pr-1 align-middle sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 257.203px;">Email</th>-->
+<!--                    <th class="sort pr-1 align-middle sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 497.203px;">Product</th>-->
+<!--                    <th class="sort pr-1 align-middle sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 154.203px;">Payment</th>-->
+<!--                    <th class="sort pr-1 align-middle sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 134.203px;">Amount</th>-->
+                  </tr>
+                </thead>
+
+                <tbody id="purchases">
+                <tr class="btn-reveal-trigger odd" role="row">
+                  <th class="align-middle"><a href="pages/customer-details.html">Sylvia Plath</a></th>
+                  <td class="align-middle">john@gmail.com</td>
+                  <td class="align-middle">Slick - Drag &amp; Drop Bootstrap Generator</td>
+                  <td class="align-middle fs-0">
+                    <span class="badge badge rounded-capsule badge-soft-success">
+                      Success <span class="ml-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                    </span>
+                  </td>
+                  <td class="align-middle">$99</td>
+                </tr>
+                <tr class="btn-reveal-trigger even" role="row">
+                  <th class="align-middle"><a href="pages/customer-details.html">Homer</a></th>
+                  <td class="align-middle">sylvia@mail.ru</td>
+                  <td class="align-middle">Bose SoundSport Wireless Headphones</td>
+                  <td class="align-middle fs-0">
+                    <span class="badge badge rounded-capsule badge-soft-success">
+                      Success <span class="ml-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                    </span>
+                  </td>
+                  <td class="align-middle">$634</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer d-flex justify-content-center py-0">
+              {% include 'include/pagination.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-3">
+    {% include 'include/sidebar.html' %}
+  </div>
+</div>
+{% endblock %}
