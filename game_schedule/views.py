@@ -24,11 +24,12 @@ class UpdateUpcomingGameView(UpdateView):
 	"""Предстовление изменения предстоящих игр"""
 	template_name = 'edit_new_game.html'
 	model = UpcomingGame
-	fields = ['team_one', 'team_two', 'date', 'address']
+	fields = ['team_one', 'team_two', 'date', 'time', 'address']
 	success_url = reverse_lazy('all_new_games')
 
 
 class DeleteUpcomingGameView(DeleteView):
 	"""Предстовление удаления предстоящих игр"""
+	template_name = 'delete_new_game.html'
 	model = UpcomingGame
 	success_url = reverse_lazy('all_new_games')

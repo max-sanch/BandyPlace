@@ -3,11 +3,6 @@ from django.db import models
 
 class Product(models.Model):
 	"""Модель списка товара(мерча)"""
-	slug = models.SlugField(
-		verbose_name='Уникальное название для URL',
-		max_length=64,
-		unique=True
-	)
 	name = models.CharField(
 		verbose_name='Название товара',
 		max_length=256

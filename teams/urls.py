@@ -23,13 +23,9 @@ urlpatterns = [
 	path('update_player/<int:pk>/', views.UpdatePlayerView.as_view(), name='update_player'),
 	path('delete_player/<int:pk>/', views.DeletePlayerView.as_view(), name='delete_player'),
 
-	# Статистика игр
-	path('stat/old_games/', views.StatPastGamesView.as_view(), name='stat_old_games'),
-	path('stat/old_game/add/', views.AddStatPastGameView.as_view(), name='add_stat_old_game'),
-	path('stat/old_game/update/<int:pk>/', views.UpdateStatPastGameView.as_view(), name='update_stat_old_game'),
-	path('stat/old_game/delete/<int:pk>/', views.DeleteStatPastGameView.as_view(), name='delete_stat_old_game'),
-	# Редактирование игр
+	# Прошедшие игры
+	path('old_games/', views.StatPastGamesView.as_view(), name='old_games'),
 	path('add_old_game/', views.AddPastGameView.as_view(), name='add_old_game'),
 	path('update_old_game/<int:pk>/', views.UpdatePastGameView.as_view(), name='update_old_game'),
-	path('delete_old_game/<int:pk>/', views.DeletePastGameView.as_view(), name='update_old_game'),
+	path('delete_old_game/<int:pk>/', views.DeletePastGameView.as_view(), name='delete_old_game'),
 ]

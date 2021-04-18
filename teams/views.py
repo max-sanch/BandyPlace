@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Team, TeamStat, Player, PlayerStat, PastGame, PastGameStat
+from .models import Team, TeamStat, Player, PlayerStat, PastGame
 
 
 # Команды
@@ -106,51 +106,29 @@ class DeletePlayerView(DeleteView):
 # Прошедшие игры
 class StatPastGamesView(ListView):
 	"""Предстовление статистики прошедших игр"""
-	template_name = 'stat_old_games.html'
-	queryset = PastGameStat.objects.order_by('-past_game.date_creation')
+	template_name = 'old_games.html'
+	queryset = PastGame.objects.order_by('date', 'time')
 	paginate_by = 12
-
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['fields'] = PastGameStat._meta.fields
-		return context
-
-
-class AddStatPastGameView(CreateView):
-	"""Предстовление добавления статистики прошедших игр"""
-	template_name = 'edit_stat_old_game.html'
-	model = PastGameStat
-	fields = ['past_game']
-
-
-class UpdateStatPastGameView(UpdateView):
-	"""Предстовление изменения статистики прошедших игр"""
-	template_name = 'edit_stat_old_game.html'
-	model = PastGameStat
-	fields = ['past_game']
-
-
-class DeleteStatPastGameView(DeleteView):
-	"""Предстовление удаления статистики прошедших игр"""
-	model = PastGameStat
-	success_url = '/stat_old_games/'
 
 
 class AddPastGameView(CreateView):
 	"""Предстовление добавления прошедших игр"""
 	template_name = 'edit_old_game.html'
 	model = PastGame
-	fields = ['team_one', 'team_two', 'date', 'result']
+	fields = ['team_one', 'team_two', 'result', 'date', 'time', 'address']
+	success_url = reverse_lazy('add_old_game')
 
 
 class UpdatePastGameView(UpdateView):
 	"""Предстовление изменения прошедших игр"""
 	template_name = 'edit_old_game.html'
 	model = PastGame
-	fields = ['team_one', 'team_two', 'date', 'result']
+	fields = ['team_one', 'team_two', 'result', 'date', 'time', 'address']
+	success_url = reverse_lazy('old_games')
 
 
 class DeletePastGameView(DeleteView):
 	"""Предстовление удаления прошедших игр"""
+	template_name = 'delete_old_game.html'
 	model = PastGame
-	success_url = '/stat_old_games/'
+	success_url = reverse_lazy('old_games')

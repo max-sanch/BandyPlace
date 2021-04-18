@@ -8,7 +8,7 @@ from .models import Product
 class AllProductsView(ListView):
 	"""Предстовление списока всех продуктов"""
 	template_name = 'all_prods.html'
-	model = Product
+	queryset = Product.objects.order_by('-date_creation')
 	paginate_by = 6
 
 
@@ -16,7 +16,7 @@ class AddProductView(CreateView):
 	"""Предстовление добавления продукта"""
 	template_name = 'edit_prod.html'
 	model = Product
-	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
+	fields = ['name', 'description', 'image', 'url_shop', 'price']
 	success_url = reverse_lazy('add_prod')
 
 
@@ -24,7 +24,7 @@ class UpdateProductView(UpdateView):
 	"""Предстовление изменения продукта"""
 	template_name = 'edit_prod.html'
 	model = Product
-	fields = ['slug', 'name', 'description', 'image', 'url_shop', 'price']
+	fields = ['name', 'description', 'image', 'url_shop', 'price']
 	success_url = reverse_lazy('all_prods')
 
 

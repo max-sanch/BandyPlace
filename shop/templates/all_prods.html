@@ -5,10 +5,20 @@
 
 {% block content %}
 <div class="row my-2">
+  <div class="d-flex justify-content-center">
+    <div class="echart-doughnut" style="height: 242px; width: 242px;" data-echart-responsive="true"> </div>
+  </div>
   <div class="col-12 col-lg-9">
     <div class="card mb-3">
       <div class="card-body">
-        <h4 class="mb-0">Магазин</h4>
+        <div class="d-flex">
+          <h4 class="mb-0">Магазин</h4>
+          {% if request.user.is_staff %}
+          <a href="{% url 'add_prod' %}" class="btn btn-falcon-default btn-sm ml-auto" type="button">
+            <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span> Добавить
+          </a>
+          {% endif %}
+        </div>
       </div>
     </div>
 
@@ -23,7 +33,9 @@
                   <a class="d-block" href="{{ obj.url_shop }}">
                     <img class="img-fluid rounded-top" src="{% static obj.image %}" alt="">
                   </a>
+                  {% if obj == object_list|first %}
                   <span class="badge badge-pill badge-success position-absolute r-0 t-0 mt-2 mr-2 z-index-2">New</span>
+                  {% endif %}
                 </div>
                 <div class="p-3">
                   <h5 class="text-dark fs-0 mb-2">
@@ -37,6 +49,14 @@
                   <h5 class="fs-md-2 text-warning">{{ obj.price }}p</h5>
                 </div>
                 <div>
+                  {% if request.user.is_staff %}
+                  <a href="{% url 'delete_prod' obj.pk %}" class="btn btn-falcon-danger" type="button">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                  <a href="{% url 'update_prod' obj.pk %}" class="btn btn-falcon-default mx-1" type="button">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                  {% endif %}
                   <a href="{{ obj.url_shop }}" class="btn btn-falcon-success" type="button">Купить</a>
                 </div>
               </div>
@@ -59,12 +79,6 @@
         {% include 'include/pagination.html' %}
       </div>
     </div>
-
-<!--    <div class="card mb-3 px-0">-->
-<!--      <div class="card-body d-flex justify-content-center">-->
-<!--        {% include 'include/pagination.html' %}-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 
   <div class="col-12 col-lg-3">

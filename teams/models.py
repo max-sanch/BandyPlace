@@ -79,20 +79,18 @@ class PastGame(models.Model):
 	date = models.DateField(
 		verbose_name='Дата проведения матча'
 	)
+	time = models.TimeField(
+		verbose_name='Время проведения матча'
+	)
+	address = models.CharField(
+		verbose_name='Место проведения матча',
+		max_length=256
+	)
 	result = models.CharField(
 		verbose_name='Результат матча',
-		max_length=10
+		max_length=32
 	)
 	date_creation = models.DateTimeField(
 		verbose_name='Время создания записи',
 		auto_now_add=True
-	)
-
-
-class PastGameStat(models.Model):
-	"""Модель статистики прошедших игр"""
-	past_game = models.ForeignKey(
-		PastGame,
-		on_delete=models.CASCADE,
-		verbose_name='Игра'
 	)

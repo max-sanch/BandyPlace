@@ -21,6 +21,26 @@
     height: 10rem;
 }
 
+.wrapper {
+    overflow-x: auto;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 0;
+}
+
+.wrapper-item, .wrapper-item-old {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.wrapper-item {
+    min-width: 260px;
+}
+
+.wrapper-item-old {
+    min-width: 300px;
+}
 @media screen and (min-width: 900px) {
     .news_img {
         height: 50vh;

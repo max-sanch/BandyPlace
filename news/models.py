@@ -14,7 +14,7 @@ class Post(models.Model):
 	)
 	body = models.TextField(
 		verbose_name='Основной текст новости',
-		max_length=4096
+		max_length=8192
 	)
 	image = models.FileField(
 		verbose_name='Картинка для новости',

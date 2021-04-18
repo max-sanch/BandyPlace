@@ -1,0 +1,25 @@
+{% extends 'base_templates.html' %}
+{% load static %}
+
+{% block title %}BadnyPlace — Личный кабинет{% endblock %}
+
+{% block content %}
+<div class="row my-2">
+  <div class="">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex">
+          <h4 class="mb-0">Личный кабинет</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <a href="{% url 'add_team' %}" class="btn btn-falcon-default btn-lg d-block mb-2" type="button">Добавить команду</a>
+        <a href="{% url 'add_player' %}" class="btn btn-falcon-default btn-lg d-block mb-2" type="button">Добавить игрока</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

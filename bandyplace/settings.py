@@ -78,6 +78,9 @@ TEMPLATES = [
 				'django.contrib.auth.context_processors.auth',
 				'django.contrib.messages.context_processors.messages',
 			],
+			'builtins': [
+				'core.templatetags.base_utils',
+			]
 		},
 	},
 ]
@@ -122,6 +125,10 @@ AUTH_PASSWORD_VALIDATORS = [
 	},
 ]
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
 # New model User
 AUTH_USER_MODEL = 'core.User'
 
@@ -147,6 +154,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
+	BASE_DIR / "media",
 	BASE_DIR / "static",
 ]
 
